@@ -1,0 +1,147 @@
+* {
+    user-select: none;
+}
+
+h2 {
+    margin: 0;
+    padding: 50px;
+}
+
+h2, h3, div {
+    text-align: center;
+}
+
+body {
+    background-color: rgb(20, 75, 20);
+    color: white;
+    transition: background-color 2s;
+    margin: 0;
+}
+
+#board_comment {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+#board {
+    border-spacing: 3px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#region_selector_container {
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    select {
+        border: none;
+    }
+}
+
+#percentage_selector {
+    column-gap: 10px;
+}
+
+#animal_selector, #pet_selector, #percentage_selector {
+    input[type=checkbox] {
+        display:none;
+    }
+    label {
+        image-rendering: pixelated;
+        text-align: center;
+        display:inline-block;
+        width:80px;
+    }
+    div div label {
+        height: 80px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    div:hover {
+        filter: brightness(0.9);
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 10px;
+    div {
+        label:nth-child(2) {
+            display:none;
+        }
+
+        input[type=checkbox]:checked+div>label:nth-child(2) {
+            display:inline-block !important;
+        }
+
+        input[type=checkbox]:checked+div>label:nth-child(1) {
+            display:none !important;
+        }
+
+        input[type=checkbox]:checked~label {
+            color:cyan
+        }
+    }
+}
+
+#board {
+    aspect-ratio: 1/1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.boardCell {
+    /* height: 100px;
+    width: 100px; */
+    background-color: gray;
+    background-size: cover;
+    image-rendering: pixelated;
+    box-sizing: border-box;
+    margin: 2px;
+}
+
+.boardCell:not(.solved):hover {
+    filter: brightness(0.9);
+}
+
+#board .highlight {
+    box-shadow: red 0 0 0 2px;
+}
+
+#board_comment.highlight {
+    color: red;
+    font-weight: bold;
+}
+
+#board_selector {
+    position: absolute;
+    z-index: 10;
+    border: 1px solid black;
+    /* background-color: darkgreen; */
+    font-size: 2em;
+    div {
+        div {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        grid-template-columns: max-content 1fr;
+        display: grid;
+        margin-top: auto;
+        margin-bottom: auto;
+        text-align: end;
+        /* background-color: #333333; */
+        }
+    div:hover {
+        filter: brightness(0.9);
+    }
+    img {
+        aspect-ratio: 1/1;
+        height: 80px;
+        image-rendering: pixelated;
+    }
+}

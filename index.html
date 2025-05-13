@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <title>DiscoZoo Solver</title>
+</head>
+<body>
+    <h2>Disco Zoo Solver</h2>
+    <div id="board_selector"></div>
+    <div id="region_selector_container">
+        <label for="region_selector">Region: </label>
+        <select name="Region" id="region_selector"></select>
+    </div>
+    <div id="selectors">
+        <div id="animal_selectors">
+            <h3>Animals</h3>
+            <div id="animal_selector"></div>
+            <h3>Pets</h3>
+            <div id="pet_selector"></div>
+        </div>
+        <h3>Tiles included in percentages</h3>
+        <div id="percentage_selector">
+            <div>
+                <input type='checkbox' id='perc_empty' onchange='renderPercentages();'>
+                <label for='perc_empty'>None</label>
+            </div>
+        </div>
+    </div>
+    <div id="board"></div>
+    <div id="board_comment"></div>
+    <script type="module" src="./pets.js"></script>
+    <script type="module" src="./regions.js"></script>
+    <script type="module" src="./solver.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./serviceWorker.js', {type: 'module',});
+        }
+    </script>
+</body>
+</html>
